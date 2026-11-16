@@ -77,3 +77,18 @@ data/
 ## Требования
 См. `requirements.txt`
 
+
+## Домашняя работа
+
+Разместите папки классов из [набора преподавателя](https://drive.google.com/drive/folders/1BzUQeJgICv2ZDXA9HEWcfiAXBRi4Ib2a) в data/train. В наборе две исходные папки, программа формирует валидацию из train.
+
+```powershell
+python -m pip install torch torchvision matplotlib numpy Pillow
+python -m unittest -v
+python homework_experiments.py
+python build_report.py
+```
+
+При первом обучении torchvision скачивает веса MobileNetV3 Small. Графики, метрики и веса находятся в results/. Обработанные фотографии трёх конфигураций сохраняются локально в results/generated/.
+
+[Отчёт с результатами](REPORT.md)

@@ -1,7 +1,6 @@
 import torch
 import random
 import numpy as np
-import cv2
 from PIL import Image, ImageEnhance, ImageOps
 
 class AddGaussianNoise:
@@ -96,6 +95,8 @@ class ElasticTransform:
         dy = np.random.randn(h, w) * self.alpha
         
         # Сглаживаем смещения
+        import cv2
+
         dx = cv2.GaussianBlur(dx, (0, 0), self.sigma)
         dy = cv2.GaussianBlur(dy, (0, 0), self.sigma)
         
@@ -122,4 +123,4 @@ class MixUp:
         if random.random() > self.p:
             return img1
         lam = np.random.beta(self.alpha, self.alpha)
-        return lam * img1 + (1 - lam) * img2 
+        return lam * img1 + (1 - lam) * img2
